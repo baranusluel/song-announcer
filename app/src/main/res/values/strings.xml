@@ -2,6 +2,6 @@
     <string name="app_name">Song Announcer</string>
     <string name="channel_name">Song Announcer</string>
     <string name="channel_description">Notifications from Song Announcer</string>
-    <string name="notification_title">Song Announcer</string>
+    <string name="notification_title">What\'s Playing?</string>
     <string name="notification_text">%s</string>
 </resources>

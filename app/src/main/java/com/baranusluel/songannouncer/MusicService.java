@@ -29,7 +29,7 @@ public class MusicService extends Service {
 
         NotificationCompat.Builder notifBuilder = new NotificationCompat.Builder(this, MainActivity.CHANNEL_ID)
                 .setDefaults(~Notification.DEFAULT_ALL)
-                .setSmallIcon(android.R.drawable.son)
+                .setSmallIcon(R.drawable.baseline_library_music_24)
                 .setContentTitle(getResources().getString(R.string.notification_title))
                 .setContentText(String.format(getResources().getString(R.string.notification_text), ""))
                 .setContentIntent(pendingIntent)
