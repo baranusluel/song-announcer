@@ -10,8 +10,8 @@ import android.util.Log;
 
 public class MusicBroadcastReceiver extends BroadcastReceiver {
 
-    private String prevArtist = "";
-    private String prevTrack = "";
+    private static String prevArtist = "";
+    private static String prevTrack = "";
 
     private TextToSpeech t2s;
 
@@ -48,6 +48,7 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
         if (action.contains("meta")
                 && !artist.equals(prevArtist)
                 && !track.equals(prevTrack)) {
+            Log.v("SongAnnouncer", "TextToSpeech");
             if (t2s == null) {
                 t2s = new TextToSpeech(context, (status) -> {
                     //t2s.setLanguage(Locale.US);
