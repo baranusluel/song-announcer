@@ -32,9 +32,9 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
             return;
         Log.v("SongAnnouncer", action);
 
-        String artist = intent.getStringExtra("artist").replaceAll("\\.", " ");
+        String artist = intent.getStringExtra("artist");
         String album = intent.getStringExtra("album");
-        String track = intent.getStringExtra("track").replaceAll("\\.", " ");
+        String track = intent.getStringExtra("track");
         Log.v("SongAnnouncer", artist + ":" + album + ":" + track);
         //Toast.makeText(context, track + " by " + artist, Toast.LENGTH_SHORT).show();
 
@@ -44,6 +44,9 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
         NotificationManager notifManager = context.getSystemService(NotificationManager.class);
         if (notifManager != null)
             notifManager.notify(NOTIFICATION_ID, notifBuilder.build());
+
+        track = track.replaceAll("\\.", " ").toLowerCase();
+        artist = artist.replaceAll("\\.", " ").toLowerCase();
 
         if (action.contains("meta")
                 && !artist.equals(prevArtist)
@@ -56,7 +59,7 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
                     t2s.setSpeechRate(0.9f);
                 });
             }
-            t2s.speak(track + " by " + artist, TextToSpeech.QUEUE_FLUSH, null, null);
+            t2s.speak(track + ", by " + artist, TextToSpeech.QUEUE_FLUSH, null, null);
         }
 
         prevArtist = artist;
