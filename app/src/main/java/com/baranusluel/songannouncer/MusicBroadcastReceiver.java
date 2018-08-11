@@ -49,8 +49,8 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
         artist = artist.replaceAll("\\.", " ").toLowerCase();
 
         if (action.contains("meta")
-                && !artist.equals(prevArtist)
-                && !track.equals(prevTrack)) {
+                && (!artist.equals(prevArtist)
+                || !track.equals(prevTrack))) {
             Log.v("SongAnnouncer", "TextToSpeech");
             if (t2s == null) {
                 t2s = new TextToSpeech(context, (status) -> {
