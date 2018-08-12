@@ -37,7 +37,7 @@ public class MusicService extends Service {
 
         startForeground(NOTIFICATION_ID, notifBuilder.build());
 
-        musicReceiver = new MusicBroadcastReceiver(NOTIFICATION_ID, notifBuilder);
+        musicReceiver = new MusicBroadcastReceiver(this, NOTIFICATION_ID, notifBuilder);
 
         IntentFilter iF = new IntentFilter();
         iF.addAction("com.android.music.metachanged");
